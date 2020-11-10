@@ -1,3 +1,4 @@
+/* vim: set noai ts=8 sw=8 sts=8 noet */ 
 /*	A sometimes minimal FORTH compiler and tutorial for Linux / i386 systems. -*- asm -*-
 	By Richard W.M. Jones <rich@annexia.org> http://annexia.org/forth
 	This is PUBLIC DOMAIN (see public domain release statement below).
@@ -1151,6 +1152,7 @@ var_\name :
 */
 
 //#include <asm-i386/unistd.h>	// you might need this instead
+//#include <asm/unistd_x32.h>
 #include <asm/unistd.h>
 
 	.macro defconst name, namelen, flags=0, label, value

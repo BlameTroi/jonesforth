@@ -1,4 +1,5 @@
 # $Id: Makefile,v 1.9 2007-10-22 18:53:12 rich Exp $
+#gcc -g -m32 -nostdlib -static -I/usr/include/x86_64-linux-gnu -Wl,-Ttext,0 $(BUILD_ID_NONE) -o $@ $<
 
 #BUILD_ID_NONE := -Wl,--build-id=none 
 BUILD_ID_NONE := 
@@ -8,7 +9,7 @@ SHELL	:= /bin/bash
 all:	jonesforth
 
 jonesforth: jonesforth.S
-	gcc -m32 -nostdlib -static -Wl,-Ttext,0 $(BUILD_ID_NONE) -o $@ $<
+	gcc -g -m32 -nostdlib -static -I/usr/include/x86_64-linux-gnu $(BUILD_ID_NONE) -o $@ $<
 
 run:
 	cat jonesforth.f $(PROG) - | ./jonesforth
